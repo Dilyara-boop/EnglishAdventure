@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>English Adventure</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <div class="brand-mark">✦</div>
+          <div class="brand-copy">
+            <strong>English Adventure</strong>
+          </div>
+        </div>
+
+        <div class="stats-block">
+          <div class="stat-pill">
+            <span class="coin-icon">🪙</span>
+            <span>Fox Coins: <strong id="coinCount">0</strong></span>
+          </div>
+          <div class="stat-pill">
+            <span class="star-icon">⭐</span>
+            <span>Stars: <strong id="starCount">0</strong></span>
+          </div>
+          <button id="musicToggle" class="stat-pill music-pill" type="button" aria-label="Music toggle">
+            🎵 Music On
+          </button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="hero-banner" aria-label="English Adventure hero illustration">
+          <div class="hero-image-frame">
+            <img src="assets/images/school-hero.png" alt="English Adventure school hero illustration" />
+          </div>
+        </section>
+
+        <section id="games" class="game-picker">
+          <div class="picker-header">
+            <h2>Choose Your Adventure!</h2>
+          </div>
+
+          <div class="game-grid">
+            <article class="game-card game-card--blue">
+              <div class="card-illustration card-illustration--blue" aria-hidden="true">
+                <span class="mini-icon">📚</span>
+                <span class="mini-icon">✏️</span>
+                <span class="mini-icon">🧩</span>
+              </div>
+              <h3>Vocabulary Memory</h3>
+              <p>Match words and pictures!</p>
+              <div class="reward-line">🪙 Up to 100 Fox Coins</div>
+              <a href="games/memory/index.html" class="btn btn--play btn--blue">PLAY</a>
+            </article>
+
+            <article class="game-card game-card--green">
+              <div class="card-illustration card-illustration--green" aria-hidden="true">
+                <span class="mini-icon">📘</span>
+                <span class="mini-icon">✅</span>
+                <span class="mini-icon">✏️</span>
+              </div>
+              <h3>Grammar Challenge</h3>
+              <p>Choose the correct answer!</p>
+              <div class="reward-line">🪙 Up to 100 Fox Coins</div>
+              <a href="games/grammar/index.html" class="btn btn--play btn--green">PLAY</a>
+            </article>
+
+            <article class="game-card game-card--orange">
+              <div class="card-illustration card-illustration--orange" aria-hidden="true">
+                <span class="mini-icon">🏫</span>
+                <span class="mini-icon">🎒</span>
+                <span class="mini-icon">🧑‍🏫</span>
+              </div>
+              <h3>Foxy's Classroom</h3>
+              <p>Help Foxy prepare the classroom!</p>
+              <div class="reward-line">🪙 Up to 100 Fox Coins</div>
+              <a href="games/classroom/index.html" class="btn btn--play btn--orange">PLAY</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="adventure-panel">
+          <div class="panel-header">
+            <h2>FOXY'S TREASURE HUNT</h2>
+            <button id="resetProgressBtn" class="reset-btn" type="button">Reset Progress</button>
+          </div>
+
+          <div class="progress-head">
+            <span id="progressText">0 / 3 games completed</span>
+            <span id="progressPercent">0%</span>
+          </div>
+
+          <div class="progress-bar" aria-label="Progress bar">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+
+          <div class="quest-list">
+            <div class="quest-item" data-game="memory">
+              <span class="quest-name">Vocabulary</span>
+              <span class="quest-status">○</span>
+            </div>
+            <div class="quest-item" data-game="grammar">
+              <span class="quest-name">Grammar</span>
+              <span class="quest-status">○</span>
+            </div>
+            <div class="quest-item" data-game="classroom">
+              <span class="quest-name">Classroom</span>
+              <span class="quest-status">○</span>
+            </div>
+            <div class="quest-item quest-item--treasure">
+              <span class="quest-name">Treasure</span>
+              <span class="quest-status">🔒</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="treasure" class="treasure-panel">
+          <div class="treasure-box">
+            <div class="treasure-box__header">
+              <span class="treasure-label">FOXY'S SECRET TREASURE</span>
+            </div>
+
+            <div class="treasure-chest-wrap">
+              <img
+                src="assets/images/treasure-chest.png"
+                alt="Foxy's Secret Treasure"
+                class="treasure-chest-image"
+                id="treasureChest"
+              />
+            </div>
+
+            <p id="treasureMessage">Complete all 3 games to unlock Foxy's Secret Treasure!</p>
+            <div class="status-row">
+              <span class="status-pill" id="treasureState">🔒 LOCKED</span>
+            </div>
+
+            <div class="treasure-indicators">
+              <span class="indicator" data-game="memory">Vocabulary <strong>🔒</strong></span>
+              <span class="indicator" data-game="grammar">Grammar <strong>🔒</strong></span>
+              <span class="indicator" data-game="classroom">Classroom <strong>🔒</strong></span>
+            </div>
+
+            <button id="openSecretBtn" class="btn btn--gold hidden" type="button">OPEN TREASURE</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

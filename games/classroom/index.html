@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Foxy's True or False | English Adventure</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a href="../../index.html" class="back-btn">← Back to Home</a>
+
+    <div class="title-block">
+      <h1>Foxy's True or False</h1>
+      <p>Look carefully and choose Yes or No!</p>
+    </div>
+
+    <button id="soundButton" class="sound-btn">
+      🔊 Sound On
+    </button>
+  </header>
+
+  <main class="game-layout">
+
+    <aside class="foxy-panel">
+
+      <img
+        src="../../assets/images/foxy.png"
+        alt="Foxy"
+        class="foxy-image"
+        id="foxyImage"
+      >
+
+      <div class="speech-bubble" id="speechBubble">
+        Are you ready? Let's play!
+      </div>
+
+      <div class="stats">
+        <div>
+          Question:
+          <strong id="questionNumber">1</strong> / 10
+        </div>
+
+        <div>
+          Score:
+          <strong id="score">0</strong>
+        </div>
+
+        <div>
+          Correct:
+          <strong id="correctCount">0</strong>
+        </div>
+      </div>
+
+    </aside>
+
+
+    <section class="quiz-area">
+
+      <div class="progress">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+
+      <div class="question-card">
+
+        <div class="object-icon" id="objectIcon">
+          ✏️
+        </div>
+
+        <div class="word" id="word">
+          PENCIL
+        </div>
+
+        <p class="question-text">
+          Is this correct?
+        </p>
+
+        <div class="answer-buttons">
+
+          <button
+            id="yesButton"
+            class="answer-btn yes-btn"
+          >
+            ✅ YES
+          </button>
+
+          <button
+            id="noButton"
+            class="answer-btn no-btn"
+          >
+            ❌ NO
+          </button>
+
+        </div>
+
+        <div
+          id="feedback"
+          class="feedback"
+        >
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <div
+    id="resultModal"
+    class="modal hidden"
+  >
+
+    <div class="modal-card">
+
+      <div class="celebration">
+        🎉 ⭐ 🎉
+      </div>
+
+      <h2>Well done!</h2>
+
+      <p>
+        You finished Foxy's True or False!
+      </p>
+
+      <div
+        id="finalStars"
+        class="stars"
+      >
+        ⭐⭐⭐
+      </div>
+
+      <div class="result-data">
+
+        <p>
+          Correct:
+          <strong id="finalCorrect">0</strong> / 10
+        </p>
+
+        <p>
+          Score:
+          <strong id="finalScore">0</strong>
+        </p>
+
+        <p>
+          Fox Coins:
+          <strong id="coinsEarned">0</strong> 🪙
+        </p>
+
+      </div>
+
+      <div class="modal-buttons">
+
+        <button id="playAgainButton">
+          PLAY AGAIN
+        </button>
+
+        <a href="../../index.html">
+          BACK TO HOME
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>

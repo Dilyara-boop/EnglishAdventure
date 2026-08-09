@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  min-height: 100vh;
+
+  font-family:
+    "Trebuchet MS",
+    Arial,
+    sans-serif;
+
+  background:
+    linear-gradient(
+      180deg,
+      #8fd6ff,
+      #eefaff
+    );
+
+  color: #17345c;
+}
+
+.reward-page {
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 30px;
+}
+
+.reward-card {
+  width: min(700px, 100%);
+
+  padding: 45px 35px;
+
+  text-align: center;
+
+  border-radius: 32px;
+
+  background: white;
+
+  box-shadow:
+    0 20px 50px
+    rgba(31, 90, 140, 0.2);
+}
+
+.trophy {
+  font-size: 90px;
+
+  animation:
+    trophyBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes trophyBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+h1 {
+  margin: 15px 0 5px;
+
+  color: #2f80ed;
+
+  font-size:
+    clamp(38px, 6vw, 60px);
+}
+
+h2 {
+  margin: 5px 0;
+
+  font-size:
+    clamp(22px, 4vw, 32px);
+}
+
+.subtitle {
+  margin-top: 10px;
+
+  color: #6683a1;
+
+  font-size: 20px;
+}
+
+.champion-badge {
+  margin: 30px auto;
+
+  padding: 18px 25px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffd84d,
+      #ff9f43
+    );
+
+  color: #714400;
+
+  font-size:
+    clamp(20px, 4vw, 30px);
+
+  font-weight: 900;
+
+  box-shadow:
+    0 10px 25px
+    rgba(255, 170, 40, 0.25);
+}
+
+.achievements {
+  margin: 25px 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 15px;
+}
+
+.achievements div {
+  padding: 20px 12px;
+
+  border-radius: 18px;
+
+  background: #f3f9ff;
+
+  font-size: 26px;
+}
+
+.achievements strong {
+  display: block;
+
+  margin-top: 10px;
+
+  font-size: 16px;
+}
+
+.message {
+  font-size: 21px;
+
+  font-weight: bold;
+}
+
+.stars {
+  margin: 20px 0;
+
+  font-size: 45px;
+}
+
+.home-btn {
+  display: inline-block;
+
+  margin-top: 15px;
+
+  padding: 15px 25px;
+
+  border-radius: 15px;
+
+  background: #2f80ed;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: 900;
+}
+
+.home-btn:hover {
+  background: #1d6fd1;
+}
+
+@media (max-width: 650px) {
+
+  .achievements {
+    grid-template-columns: 1fr;
+  }
+
+  .reward-card {
+    padding: 30px 20px;
+  }
+}

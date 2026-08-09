@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grammar Challenge</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="game-page grammar-page">
+    <div class="game-shell">
+      <header class="game-header">
+        <a href="../../index.html" class="back-link">← Back to Home</a>
+
+        <div class="header-actions">
+          <button class="restart-btn" id="restartBtn" type="button">Restart</button>
+          <button class="sound-btn" id="soundToggleBtn" type="button" aria-label="Toggle sound">
+            🔊 Sound On
+          </button>
+        </div>
+      </header>
+
+      <main class="game-panel">
+        <div class="game-intro">
+          <span class="game-badge">Game 2</span>
+          <h1>Grammar Challenge</h1>
+          <p>Help Foxy choose the correct answer!</p>
+        </div>
+
+        <div class="status-row">
+          <div class="question-counter">Question <span id="questionNumber">1</span> / 10</div>
+          <div class="score-display">Score: <strong id="scoreValue">0</strong></div>
+        </div>
+
+        <div class="progress-track" aria-label="Grammar progress bar">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+
+        <div class="game-area">
+          <section class="question-panel">
+            <div class="question-card">
+              <div class="question-tag">School Days</div>
+              <h2 id="questionText">I ___ a student.</h2>
+              <div id="answerList" class="answer-list" aria-live="polite"></div>
+              <button id="nextBtn" class="next-btn hidden" type="button">NEXT</button>
+            </div>
+          </section>
+
+          <aside class="foxy-panel" aria-label="Foxy helper">
+            <div class="foxy-card">
+              <img src="../../assets/images/foxy.png" alt="Foxy" class="foxy-image" />
+              <div class="speech-bubble" id="foxySpeech">Ready for the Grammar Challenge?</div>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <div id="resultModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="resultTitle">
+      <div class="modal-content">
+        <div class="modal-badge" id="resultBadge">🎉 Well done!</div>
+        <h2 id="resultTitle">Amazing! You passed the Grammar Challenge! 🎉</h2>
+
+        <div class="result-grid">
+          <div class="result-item">
+            <span>Correct answers</span>
+            <strong id="resultCorrect">0 / 10</strong>
+          </div>
+          <div class="result-item">
+            <span>Score</span>
+            <strong id="resultScore">0 / 100</strong>
+          </div>
+          <div class="result-item">
+            <span>Stars</span>
+            <strong id="resultStars">⭐⭐⭐</strong>
+          </div>
+          <div class="result-item">
+            <span>Fox Coins earned</span>
+            <strong id="resultCoins">0</strong>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button id="modalActionBtn" type="button" class="btn btn-primary">TRY AGAIN</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
