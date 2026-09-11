@@ -17,13 +17,13 @@
 
       <div class="trophy">🏆</div>
 
-      <h1>Congratulations!</h1>
+      <h1>Congratulations, <span id="certificateName">Champion</span>!</h1>
 
       <h2>You completed all 3 games!</h2>
 
-      <p class="subtitle">
-        Module 1 — School Days
-      </p>
+      <p class="certificate-line">This certificate is proudly presented to</p>
+      <div class="student-name" id="studentName">Champion</div>
+      <p class="subtitle" id="certificateModule">Module 1 — School Days</p>
 
       <div class="champion-badge">
         ⭐ ENGLISH ADVENTURE CHAMPION ⭐
@@ -55,9 +55,7 @@
       <div class="stars">
         ⭐ ⭐ ⭐
       </div>
-      <a href="certificate.pdf" download class="home-btn">
-  📄 Download Certificate
-</a>
+      <button id="printCertificateBtn" type="button" class="home-btn">📄 Save Certificate as PDF</button>
 
       <a href="../index.html" class="home-btn">
         ← Back to English Adventure
@@ -66,6 +64,7 @@
     </div>
 
   </main>
+  <script src="reward.js"></script>
 
 </body>
 </html>

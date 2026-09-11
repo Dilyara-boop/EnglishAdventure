@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>English Adventure</title>
+    <link rel="icon" type="image/png" href="assets/images/dilyara-icon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -16,7 +17,8 @@
           </div>
         </div>
 
-        <div class="stats-block">
+          <div class="stats-block">
+          <button id="changeNameBtn" class="stat-pill name-pill" type="button">👋 <span id="playerNameLabel">Player</span></button>
           <div class="stat-pill">
             <span class="coin-icon">🪙</span>
             <span>Fox Coins: <strong id="coinCount">0</strong></span>
@@ -32,12 +34,40 @@
       </header>
 
       <main class="main-content">
-        <section class="hero-banner" aria-label="English Adventure hero illustration">
-          <div class="hero-image-frame">
-            <img src="assets/images/school-hero.png" alt="English Adventure school hero illustration" />
+        <section class="hero-banner" aria-label="English Adventure with Foxy">
+          <div class="hero-image-frame hero-image-frame--branded">
+            <img src="assets/images/teacher-adventure-hero.png" alt="English teacher and Foxy invite children on an English adventure" />
+            <div class="hero-copy">
+              <span class="hero-kicker">Learn • Play • Shine</span>
+              <h1>English<br /><em>Adventure</em></h1>
+              <p>Learn English with Foxy and your super teacher!</p>
+              <a href="#gradeTitle" class="hero-action">CHOOSE YOUR GRADE ↓</a>
+            </div>
           </div>
         </section>
 
+        <section class="grade-picker" aria-labelledby="gradeTitle">
+          <div class="grade-picker__intro">
+            <span class="eyebrow">Choose your level</span>
+            <h1 id="gradeTitle">What grade are you in?</h1>
+            <p>Select a grade and continue your English adventure with Foxy.</p>
+          </div>
+          <div class="grade-tabs" role="tablist" aria-label="School grade">
+            <button class="grade-tab grade-tab--pink" type="button" role="tab" data-grade="3" aria-selected="false"><span class="grade-tab__icon">🎈</span><span><strong>Grade 3</strong><small>Start the adventure</small></span></button>
+            <button class="grade-tab grade-tab--purple" type="button" role="tab" data-grade="4" aria-selected="false"><span class="grade-tab__icon">🚀</span><span><strong>Grade 4</strong><small>Explore and learn</small></span></button>
+            <button class="grade-tab grade-tab--blue is-active" type="button" role="tab" data-grade="5" aria-selected="true"><span class="grade-tab__icon">🦊</span><span><strong>Grade 5</strong><small>Current adventure</small></span></button>
+          </div>
+        </section>
+
+        <section id="moduleExplorer" class="module-explorer" aria-live="polite">
+          <div class="module-explorer__head">
+            <div><span class="eyebrow" id="selectedGradeLabel">Spotlight 5</span><h2 id="moduleTitle">Grade 5 modules</h2></div>
+            <span class="module-note" id="moduleNote">Module 1 is ready to play</span>
+          </div>
+          <div class="module-grid" id="moduleGrid"></div>
+        </section>
+
+        <div id="gradeFiveContent">
         <section id="games" class="game-picker">
           <div class="picker-header">
             <h2>Choose Your Adventure!</h2>
@@ -146,7 +176,20 @@
             <button id="openSecretBtn" class="btn btn--gold hidden" type="button">OPEN TREASURE</button>
           </div>
         </section>
+        </div>
       </main>
+    </div>
+
+    <div id="nameWelcome" class="name-welcome hidden" role="dialog" aria-modal="true" aria-labelledby="nameWelcomeTitle">
+      <form id="nameForm" class="name-card">
+        <div class="name-card__characters">🦊 ✨</div>
+        <span class="eyebrow">Welcome to English Adventure!</span>
+        <h2 id="nameWelcomeTitle">What's your name?</h2>
+        <p>Foxy will remember you and put your name on the certificate.</p>
+        <label for="playerNameInput">Your name</label>
+        <input id="playerNameInput" name="playerName" type="text" maxlength="30" autocomplete="given-name" placeholder="Enter your name" required />
+        <button type="submit">START MY ADVENTURE</button>
+      </form>
     </div>
 
     <script src="main.js"></script>

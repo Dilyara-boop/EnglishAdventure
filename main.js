@@ -367,6 +367,45 @@ function renderProgress() {
   saveState();
 }
 
+const GRADE_MODULES = {
+  3: ['School Days!', 'Family Moments!', 'All the Things I Like!', 'Come In and Play!', 'Furry Friends!', 'Home Sweet Home!', 'A Day Off!', 'Day by Day!'],
+  4: ['Family & Friends!', 'A Working Day!', 'Tasty Treats!', 'At the Zoo!', 'Where Were You Yesterday?', 'Tell the Tale!', 'Days to Remember!', 'Places to Go!'],
+  5: ['School Days', "That's Me!", 'My Home, My Castle', 'Family Ties', 'World Animals', 'Round the Clock', 'In All Weathers', 'Special Days', 'Modern Living', 'Holidays']
+};
+
+function renderGrade(grade) {
+  const moduleGrid = document.getElementById('moduleGrid');
+  const gradeLabel = document.getElementById('selectedGradeLabel');
+  const moduleTitle = document.getElementById('moduleTitle');
+  const moduleNote = document.getElementById('moduleNote');
+  const gradeFiveContent = document.getElementById('gradeFiveContent');
+  if (!moduleGrid || !GRADE_MODULES[grade]) return;
+
+  document.querySelectorAll('.grade-tab').forEach(tab => {
+    const selected = tab.dataset.grade === String(grade);
+    tab.classList.toggle('is-active', selected);
+    tab.setAttribute('aria-selected', String(selected));
+  });
+
+  gradeLabel.textContent = `Spotlight ${grade}`;
+  moduleTitle.textContent = `Grade ${grade} modules`;
+  moduleNote.textContent = 'Module 1 is ready to play';
+  gradeFiveContent.classList.toggle('is-hidden', grade !== 5);
+  moduleGrid.innerHTML = GRADE_MODULES[grade].map((title, index) => {
+    const ready = index === 0;
+    const target = grade === 3 ? 'grade3/module1/index.html' : grade === 4 ? 'grade4/module1/index.html' : '#games';
+    return `<article class="module-card${ready ? ' is-ready' : ''}">
+      <span class="module-card__number">Module ${index + 1}</span>
+      <h3>${title}</h3>
+      <p>${ready ? 'Vocabulary, grammar and classroom games' : 'New games will be added here'}</p>
+      <span class="module-card__status">${ready ? '✓ Ready to play' : '🔒 Coming soon'}</span>
+      ${ready ? `<a class="module-card__play" href="${target}">OPEN MODULE</a>` : ''}
+    </article>`;
+  }).join('');
+
+  try { localStorage.setItem('englishAdventureGrade', String(grade)); } catch (error) {}
+}
+
 window.FoxyProgress = {
   state,
   saveState,
@@ -381,6 +420,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const resetBtn = document.getElementById('resetProgressBtn');
   const openSecretBtn = document.getElementById('openSecretBtn');
   const musicToggleBtn = document.getElementById('musicToggle');
+  const savedGrade = Number(localStorage.getItem('englishAdventureGrade')) || 5;
+  const nameWelcome = document.getElementById('nameWelcome');
+  const nameForm = document.getElementById('nameForm');
+  const nameInput = document.getElementById('playerNameInput');
+  const playerNameLabel = document.getElementById('playerNameLabel');
+  const changeNameBtn = document.getElementById('changeNameBtn');
+  sessionStorage.removeItem('englishAdventurePlayerName');
+
+  function showNameForm() {
+    nameWelcome.classList.remove('hidden');
+    nameInput.value = sessionStorage.getItem('englishAdventurePlayerName') || '';
+    window.setTimeout(() => nameInput.focus(), 50);
+  }
+
+  playerNameLabel.textContent = 'Player';
+  showNameForm();
+  changeNameBtn.addEventListener('click', showNameForm);
+  nameForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const playerName = nameInput.value.trim().replace(/\s+/g, ' ');
+    if (!playerName) return;
+    sessionStorage.setItem('englishAdventurePlayerName', playerName);
+    playerNameLabel.textContent = playerName;
+    nameWelcome.classList.add('hidden');
+  });
+
+  document.querySelectorAll('.grade-tab').forEach(tab => {
+    tab.addEventListener('click', () => renderGrade(Number(tab.dataset.grade)));
+  });
+  renderGrade(savedGrade);
 
   if (resetBtn) {
     resetBtn.addEventListener('click', resetProgress);
@@ -388,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (openSecretBtn) {
     openSecretBtn.addEventListener('click', () => {
-      window.location.href = 'reward/index.html';
+      window.location.href = 'reward/index.html?grade=5';
     });
   }
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Subjects Memory | Grade 3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="memory-page">
+    <div class="memory-shell">
+      <header class="memory-header">
+        <a href="../index.html" class="back-link">← Back to Module 1</a>
+
+        <div class="header-actions">
+          <button class="restart-btn" id="restartBtn" type="button">Restart</button>
+          <button class="sound-btn" id="soundToggleBtn" type="button" aria-label="Toggle sound">🔊 Sound On</button>
+        </div>
+      </header>
+
+      <main class="memory-layout">
+        <section class="board-panel" aria-label="Vocabulary Memory game board">
+          <div class="score-board" aria-live="polite">
+            <div class="score-item">
+              <span>Pairs:</span>
+              <strong id="pairsCount">0 / 8</strong>
+            </div>
+            <div class="score-item">
+              <span>Moves:</span>
+              <strong id="movesCount">0</strong>
+            </div>
+            <div class="score-item">
+              <span>Score:</span>
+              <strong id="scoreCount">0</strong>
+            </div>
+          </div>
+
+          <div class="board-header">
+            <div class="game-badge">Game 1</div>
+            <h1>School Subjects Memory</h1>
+          </div>
+
+          <div id="gameBoard" class="game-board" aria-live="polite"></div>
+        </section>
+
+        <aside class="foxy-panel" aria-label="Foxy helper">
+          <div class="foxy-card">
+            <img src="../../../assets/images/foxy.png" alt="Foxy" class="foxy-image" />
+            <div class="speech-bubble" id="foxyMessage">Let's match the school subjects!</div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <div id="resultModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
+      <div class="modal-content">
+        <div class="modal-badge">🎉 Well done!</div>
+        <h2 id="modalTitle">You found all the pairs!</h2>
+
+        <div class="result-grid">
+          <div class="result-item">
+            <span>Moves</span>
+            <strong id="resultMoves">0</strong>
+          </div>
+          <div class="result-item">
+            <span>Score</span>
+            <strong id="resultScore">0</strong>
+          </div>
+          <div class="result-item">
+            <span>Stars</span>
+            <strong id="resultStars">0</strong>
+          </div>
+          <div class="result-item">
+            <span>Fox Coins earned</span>
+            <strong id="resultCoins">0</strong>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="playAgainBtn" class="btn btn-primary">PLAY AGAIN</button>
+          <a href="../index.html" class="btn btn-secondary">BACK TO MODULE</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

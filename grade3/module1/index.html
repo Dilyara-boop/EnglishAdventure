@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grade 3 · Module 1 | English Adventure</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="module.css" />
+</head>
+<body>
+  <main class="module-page">
+    <a class="module-back" href="../../index.html">← Choose another grade</a>
+    <section class="module-hero">
+      <div>
+        <span class="module-label">Spotlight 3 · Module 1</span>
+        <h1>School Days!</h1>
+        <p>Play three games with Foxy and practise school subjects, numbers and classroom words.</p>
+      </div>
+      <img src="../../assets/images/foxy.png" alt="Foxy" />
+    </section>
+    <section class="module-games" aria-label="Module 1 games">
+      <article class="module-game module-game--blue"><span class="module-game__icon">🎨</span><small>Game 1</small><h2>School Subjects</h2><p>Match every subject with its picture.</p><a href="memory/index.html">PLAY MEMORY</a></article>
+      <article class="module-game module-game--purple"><span class="module-game__icon">🔢</span><small>Game 2</small><h2>Numbers 11–20</h2><p>Choose the correct English number.</p><a href="grammar/index.html">PLAY QUIZ</a></article>
+      <article class="module-game module-game--orange"><span class="module-game__icon">🎒</span><small>Game 3</small><h2>Schoolbag Detective</h2><p>Look carefully and answer Yes or No.</p><a href="classroom/index.html">PLAY DETECTIVE</a></article>
+    </section>
+    <section class="module-treasure" aria-labelledby="treasureTitle">
+      <div>
+        <span class="module-label">Foxy's reward</span>
+        <h2 id="treasureTitle">Secret Treasure</h2>
+        <p id="grade3TreasureMessage">Complete all 3 games to unlock the treasure!</p>
+        <div class="treasure-progress" id="grade3TreasureProgress">0 / 3 games completed</div>
+        <a id="grade3TreasureButton" class="treasure-button is-locked" href="../../reward/index.html?grade=3" aria-disabled="true">🔒 LOCKED</a>
+      </div>
+      <img id="grade3TreasureChest" src="../../assets/images/treasure-chest.png" alt="Foxy's secret treasure chest" />
+    </section>
+  </main>
+  <script src="module.js"></script>
+</body>
+</html>

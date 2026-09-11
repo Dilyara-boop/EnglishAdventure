@@ -192,3 +192,7 @@ h2 {
     padding: 30px 20px;
   }
 }
+.certificate-line{margin:26px 0 4px;color:#6683a1;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.student-name{display:inline-block;min-width:65%;padding:6px 22px 10px;border-bottom:3px solid #ffd84d;color:#ef5c4d;font-family:Georgia,serif;font-size:clamp(2rem,6vw,3.7rem);font-style:italic;font-weight:700}
+.home-btn{border:0;cursor:pointer;font-family:inherit;font-size:1rem}
+@media print{body{background:#fff}.reward-page{padding:0}.reward-card{width:100%;max-width:none;min-height:100vh;border:12px double #ffd84d;border-radius:0;box-shadow:none}.home-btn{display:none}.trophy{animation:none}}
